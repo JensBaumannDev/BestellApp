@@ -1,0 +1,28 @@
+*{
+    color: black;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header{}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 2px;
+    gap: 2px;    
+}
+
+.content{
+    width: calc(100% - 300px);
+    padding: 16px;
+    border: 2px solid black;
+}
+
+.bastek-wrapper{
+    width: 300px;
+    flex-grow: 1;
+    border:2px solid black;
+    padding: 16px;
+}
