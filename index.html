@@ -1,33 +1,40 @@
 <!doctype html>
 <html lang="de">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BestellApp</title>
+    <title>Lieferando Clone</title>
     <link rel="stylesheet" href="./styles/standard.css" />
-    <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="./styles/basket.css" />
-  </head>
-  <body onload="">
-    <header>
-      <div class="header-content">
-        <img src="./assets/img/logo2.svg" alt="Logo" />
-        <div class="burger-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+</head>
+<body>
+
+    <nav class="top-bar">
+        <div class="top-bar-content">
+            <img src="./assets/img/logo2.svg" class="nav-logo" alt="Logo">
+            
+            <div class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <header class="hero-section">
+        <img src="./assets/img/header.png" class="hero-image" alt="Header">
+        <img src="./assets/img/burger-logo.png" class="profile-logo" alt="Restaurant Logo">
     </header>
+
     <div class="content-wrapper">
-      <section class="content"></section>
-      <section class="bastek-wrapper"></section>
+        <section class="content" id="content">
+            </section>
+
+        <section class="basket-wrapper" id="basket-wrapper">
+            <h2>Warenkorb</h2>
+        </section>
     </div>
-    <footer>
-      <div class="footer-content"></div>
-    </footer>
-  </body>
-  <script src="./scripts/db.js"></script>
-  <script src="./scripts/template.js"></script>
+
+</body>
 </html>

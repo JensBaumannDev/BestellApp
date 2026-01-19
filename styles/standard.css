@@ -4,29 +4,84 @@
   margin: 0;
 }
 
-header {
-  height: 130px;
-  width: 100%;
-  background-color: #e76c1f;
-  background-position: center;
-  background-size: cover;
-  display: block;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
 }
 
-.header-content {
+.top-bar {
+  background-color: #e76c1f;
+  height: 120px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.453);
+  box-shadow: 0px 0px 45px black;
+}
+
+.top-bar-content {
   max-width: 1440px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 2px;
+  padding: 0 16px;
 }
 
-header img {
-  height: 40px;
-  width: 80px;
+.nav-logo {
+  height: 35px;
+  width: auto;
   object-fit: contain;
+}
+
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.burger-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2px;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 60px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-logo {
+  position: absolute;
+  left: 50%;
+  bottom: -100px;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  background-color: white;
+  z-index: 10;
 }
 
 .content-wrapper {
@@ -36,37 +91,25 @@ header img {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 2px;
-  gap: 2px;
+  padding: 0 16px;
+  gap: 16px;
 }
 
 .content {
-  width: calc(100% - 300px - 2px);
+  flex: 1;
   padding: 16px;
-  border: 2px solid black;
-}
-
-.bastek-wrapper {
-  width: 300px;
-  flex-grow: 1;
-  border: 2px solid black;
-  padding: 16px;
-}
-
-.burger-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-.burger-menu span {
-  display: block;
-  width: 100%;
-  height: 3px;
+  border: 1px solid #ddd;
   background-color: white;
-  border-radius: 2px;
+  border-radius: 8px;
+}
+
+.basket-wrapper {
+  width: 300px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 8px;
+  position: sticky;
+  top: 80px;
+  flex-shrink: 0;
 }
