@@ -72,6 +72,8 @@ body {
   width: 100%;
   text-align: center;
   z-index: 5;
+  font-family: "PalanquinDark", sans-serif;
+  font-weight: 700;
 }
 
 .hero-image {
@@ -94,10 +96,6 @@ body {
   background-color: white;
   z-index: 10;
 }
-.restaurant-title-container {
-  font-family: "PalanquinDark", sans-serif;
-  font-weight: 700;
-}
 
 h1 {
   font-weight: 700;
@@ -109,12 +107,10 @@ h1 {
 }
 
 .content-wrapper {
-  max-width: 1440px;
   width: 100%;
-  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   padding: 0 16px;
   gap: 16px;
   flex: 1;
@@ -122,6 +118,8 @@ h1 {
 
 .content {
   flex: 1;
+  width: 100%;
+  max-width: 1440px;
   padding: 16px;
   border: 1px solid #ddd;
   background-color: white;
@@ -129,7 +127,6 @@ h1 {
   margin-bottom: 48px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
 }
@@ -147,7 +144,7 @@ h1 {
 
 h2 {
   font-size: 32px;
-  font-size: 400;
+  font-weight: 400;
 }
 
 footer {
@@ -165,7 +162,7 @@ footer {
   margin: 0 auto;
   padding: 0 16px;
   display: flex;
-  gap: 150px;
+  gap: 70px;
   justify-content: center;
 }
 
@@ -191,7 +188,9 @@ footer {
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .food-card h3 {
@@ -222,8 +221,38 @@ footer {
   cursor: pointer;
   font-weight: bold;
   width: 40px;
+  align-self: flex-end;
 }
 
 .add-btn:hover {
   background-color: #e68900;
+}
+
+#burger-content,
+#pizza-content,
+#nudles-content,
+#extra-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.category-headline {
+  background-color: #ff9800;
+  background-size: cover;
+  background-position: center;
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: -16px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 26px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
