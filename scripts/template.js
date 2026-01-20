@@ -3,23 +3,10 @@ let pizzaRef = document.getElementById("pizza-content");
 let nuddlesRef = document.getElementById("nudles-content");
 let salatRef = document.getElementById("extra-content");
 let isDelivery = true;
+let basketData = [];
 
 function foodData() {
   getFoodCategory(foodDataBase);
-}
-
-function getFoodTemplate(food) {
-  let formattedPrice = food.price.toFixed(2).replace(".", ",");
-  return `
-    <div class="food-card">
-      <div class="food-card-inner">
-        <h3>${food.name}</h3>
-        <p class="description">${food.description}</p>
-        <span class="price">${formattedPrice} €</span>
-      </div>
-        <button class="add-btn">Hinzufügen</button>
-    </div>
-  `;
 }
 
 const categoryRefs = {
@@ -45,6 +32,31 @@ function getFoodTemplate(food) {
             <button class="add-btn" onclick="addToBasket('${food.name}')">Hinzufügen</button>
         </div>
     `;
+}
+
+function addToBasket(foodName) {
+  const foodItem = getFoodData(foodName);
+  basketData.push(foodItem);
+  renderBasket();
+}
+
+function getFoodData(foodName) {
+  for (let index = 0; index < foodDataBase.length; index++) {
+    if (foodName == foodDataBase[index].name) {
+      return foodDataBase[index];
+    }
+  }
+  return null;
+}
+
+function getBasketItemTemplate(item) {
+  let formattedPrice = item.price.toFixed(2).replace(".", ",");
+  return `
+    <div class="basket-content-inner">
+        <span>${item.name}</span>
+        <span>${formattedPrice} €</span>
+    </div>
+  `;
 }
 
 function renderFoodItems(items) {
@@ -74,12 +86,25 @@ function renderFoodItems(items) {
 
 function setDelivery(status) {
   isDelivery = status;
-  renderBasketToggle();
+  renderBasket();
 }
 
-function renderBasketToggle() {
+function renderBasket() {
   let basketRef = document.getElementById("basket-wrapper");
 
+  let itemsHtml = "";
+  for (let index = 0; index < basketData.length; index++) {
+    itemsHtml += getBasketItemTemplate(basketData[index]);
+  }
+  let basketContent;
+  if (basketData.length > 0) {
+    basketContent = `
+        <div id="basket-items-container" class="basket-items-list">
+            ${itemsHtml}
+        </div>`;
+  } else {
+    basketContent = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p>`;
+  }
   basketRef.innerHTML = `
         <h2>Warenkorb</h2>
         <div class="basket-toggle-container">
@@ -90,9 +115,9 @@ function renderBasketToggle() {
                 Abholung
             </button>
         </div>
-        <div id="basket-items"></div>
+        ${basketContent}
     `;
 }
 
-renderBasketToggle();
+renderBasket();
 foodData();
