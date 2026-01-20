@@ -9,7 +9,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -185,7 +185,7 @@ footer {
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: #fdeadc;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -213,8 +213,8 @@ footer {
 }
 
 .add-btn {
-  background-color: #ff9800;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   border: none;
   padding: 8px;
   border-radius: 4px;
