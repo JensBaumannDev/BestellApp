@@ -16,7 +16,7 @@ function getFoodTemplate(food) {
         <p class="description">${food.description}</p>
         <span class="price">${formattedPrice} €</span>
       </div>
-        <button class="add-btn">+</button>
+        <button class="add-btn">Hinzufügen</button>
     </div>
   `;
 }

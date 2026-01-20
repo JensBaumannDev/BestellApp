@@ -1,3 +1,4 @@
+/* #region Global & Reset */
 * {
   color: black;
   box-sizing: border-box;
@@ -14,7 +15,20 @@ body {
   display: flex;
   flex-direction: column;
 }
+/* #endregion */
 
+/* #region Typography Defaults */
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 400;
+}
+/* #endregion */
+
+/* #region Header & Navigation */
 .top-bar {
   background-color: #e76c1f;
   height: 120px;
@@ -58,22 +72,14 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 2px;
 }
+/* #endregion */
 
+/* #region Hero Section */
 .hero-section {
   position: relative;
   width: 100%;
   height: 500px;
   margin-bottom: 200px;
-}
-
-.restaurant-title-container {
-  position: absolute;
-  bottom: -160px;
-  width: 100%;
-  text-align: center;
-  z-index: 5;
-  font-family: "PalanquinDark", sans-serif;
-  font-weight: 700;
 }
 
 .hero-image {
@@ -97,15 +103,26 @@ body {
   z-index: 10;
 }
 
-h1 {
+.restaurant-title-container {
+  margin-top: 120px;
+  margin-bottom: 120px;
+  width: 100%;
+  text-align: center;
+  font-family: "PalanquinDark", sans-serif;
   font-weight: 700;
+}
+
+.restaurant-title-container p {
+  font-size: 21px;
 }
 
 .restaurant-title-container h1 span {
   color: #e76c1f;
   font-weight: 700;
 }
+/* #endregion */
 
+/* #region Main Layout */
 .content-wrapper {
   width: 100%;
   display: flex;
@@ -114,6 +131,7 @@ h1 {
   padding: 0 16px;
   gap: 16px;
   flex: 1;
+  margin-top: 80px;
 }
 
 .content {
@@ -130,23 +148,82 @@ h1 {
   justify-content: center;
   gap: 32px;
 }
+/* #endregion */
 
-.basket-wrapper {
-  width: 300px;
-  padding: 16px;
+/* #region Food Menu (Categories & Cards) */
+#burger-content,
+#pizza-content,
+#nudles-content,
+#extra-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.category-headline {
+  display: flex;
+  align-items: center;
+  width: calc(100% + 32px);
+  height: 60px;
+  background-color: #e76c1f;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  font-size: 18px;
+}
+
+.food-card {
   border: 1px solid #ddd;
-  background-color: white;
-  border-radius: 8px;
-  position: sticky;
-  top: 80px;
-  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fdeadc;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-h2 {
-  font-size: 32px;
-  font-weight: 400;
+.food-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 19.2px;
 }
 
+.description {
+  font-size: 14.4px;
+  color: #666;
+  flex-grow: 1;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 17.6px;
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+.add-btn {
+  background-color: #ffffff;
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: auto;
+  align-self: flex-end;
+}
+
+.add-btn:hover {
+  background-color: #e76c1f;
+  color: white;
+}
+/* #endregion */
+
+/* #region Footer */
 footer {
   height: 120px;
   background-color: #e76c1f;
@@ -179,80 +256,4 @@ footer {
 .footer-link:hover {
   text-decoration: underline;
 }
-
-.food-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #fdeadc;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.food-card h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.2rem;
-}
-
-.description {
-  font-size: 0.9rem;
-  color: #666;
-  flex-grow: 1;
-}
-
-.price {
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 10px 0;
-  color: #2c3e50;
-}
-
-.add-btn {
-  background-color: #ffffff;
-  color: black;
-  border: none;
-  padding: 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 40px;
-  align-self: flex-end;
-}
-
-.add-btn:hover {
-  background-color: #e68900;
-}
-
-#burger-content,
-#pizza-content,
-#nudles-content,
-#extra-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-}
-
-.category-headline {
-  background-color: #ff9800;
-  background-size: cover;
-  background-position: center;
-  width: calc(100% + 32px);
-  margin-left: -16px;
-  margin-right: -16px;
-  margin-top: -16px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding-left: 26px;
-  color: white;
-  font-size: 18px;
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
+/* #endregion */
