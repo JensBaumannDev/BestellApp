@@ -1,5 +1,5 @@
 .basket-wrapper {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   position: fixed;
@@ -22,4 +22,31 @@
     top: 0;
     height: 100vh;
   }
+}
+
+.basket-toggle-container {
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 4px;
+  margin: 16px 0;
+  width: 100%;
+}
+
+.toggle-btn {
+  flex: 1;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+  background-color: white;
+  color: #e76c1f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

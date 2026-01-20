@@ -2,6 +2,7 @@ let burgerRef = document.getElementById("burger-content");
 let pizzaRef = document.getElementById("pizza-content");
 let nuddlesRef = document.getElementById("nudles-content");
 let salatRef = document.getElementById("extra-content");
+let isDelivery = true;
 
 function foodData() {
   getFoodCategory(foodDataBase);
@@ -71,6 +72,27 @@ function renderFoodItems(items) {
   }
 }
 
-foodData();
+function setDelivery(status) {
+  isDelivery = status;
+  renderBasketToggle();
+}
 
+function renderBasketToggle() {
+  let basketRef = document.getElementById("basket-wrapper");
+
+  basketRef.innerHTML = `
+        <h2>Warenkorb</h2>
+        <div class="basket-toggle-container">
+            <button class="toggle-btn ${isDelivery ? "active" : ""}" onclick="setDelivery(true)">
+                Lieferung
+            </button>
+            <button class="toggle-btn ${!isDelivery ? "active" : ""}" onclick="setDelivery(false)">
+                Abholung
+            </button>
+        </div>
+        <div id="basket-items"></div>
+    `;
+}
+
+renderBasketToggle();
 foodData();

@@ -194,7 +194,7 @@ h2 {
 }
 
 .food-card:hover {
-  background-color: #eaeaea;
+  background-color: #f2f2f2;
 }
 
 .food-card:has(.add-btn:hover) {
@@ -229,7 +229,7 @@ h2 {
 }
 
 .add-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #f2f2f2;
 }
 /* #endregion */
 
