@@ -178,8 +178,8 @@ h2 {
   color: white;
   box-sizing: border-box;
   padding-inline: max(16px, calc((100% - 1440px) / 2 + 16px));
-  margin-bottom: 32px;
-  margin-top: 32px;
+  margin-bottom: 48px;
+  margin-top: 48px;
 }
 
 .headline-icon {
@@ -276,7 +276,7 @@ footer {
   display: flex;
   align-items: center;
   z-index: 50;
-  margin-top: 32px;
+  margin-top: 48px;
 }
 
 .footer-content {
