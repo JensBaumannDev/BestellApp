@@ -1,6 +1,6 @@
 let burgerRef = document.getElementById("burger-content");
 let pizzaRef = document.getElementById("pizza-content");
-let nuddlesRef = document.getElementById("nudles-content");
+let noodlesRef = document.getElementById("noodles-content");
 let salatRef = document.getElementById("extra-content");
 let isDelivery = true;
 let basketData = [];
@@ -12,7 +12,7 @@ function foodData() {
 const categoryRefs = {
   Burger: document.getElementById("burger-content"),
   Pizza: document.getElementById("pizza-content"),
-  Nudeln: document.getElementById("nudles-content"),
+  Nudeln: document.getElementById("noodles-content"),
   Beilagen: document.getElementById("extra-content"),
 };
 

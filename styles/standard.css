@@ -152,7 +152,7 @@ h2 {
 /* #region Food Menu (Categories & Cards) */
 #burger-content,
 #pizza-content,
-#nudles-content,
+#noodles-content,
 #extra-content {
   display: flex;
   flex-direction: column;
