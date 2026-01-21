@@ -4,7 +4,8 @@ let foodDataBase = [
     "category": "Burger",
     "name": "Classic Hamburger",
     "price": 7.50,
-    "description": "Saftiges Rindfleischpatty mit frischem Salat, Tomaten, Gurken und unserer Haus-Sauce."
+    "description": "Saftiges Rindfleischpatty mit frischem Salat, Tomaten, Gurken und unserer Haus-Sauce.",
+    "imgSrc": "./assets/img/burger/hamburger.jpg"
   },
   {
     "id": 2,

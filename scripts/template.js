@@ -23,15 +23,16 @@ function foodData() {
 function getFoodTemplate(food) {
   let formattedPrice = food.price.toFixed(2).replace(".", ",");
   return `
-        <div class="food-card">
-            <div class="food-card-inner">
-                <h3>${food.name}</h3>
-                <p class="description">${food.description}</p>
-                <span class="price">${formattedPrice} €</span>
-            </div>
-            <button class="add-btn" onclick="addToBasket('${food.name}')">Hinzufügen</button>
-        </div>
-    `;
+      <div class="food-card">
+          <img src="${food.imgSrc}" alt="${food.name}" class="food-img">
+          <div class="food-card-inner">
+              <h3>${food.name}</h3>
+              <p class="description">${food.description}</p>
+              <span class="price">${formattedPrice} €</span>
+          </div>
+          <button class="add-btn" onclick="addToBasket('${food.name}')">Hinzufügen</button>
+      </div>
+  `;
 }
 
 function addToBasket(foodName) {

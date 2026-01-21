@@ -190,6 +190,12 @@ h2 {
   margin-bottom: 12px;
 }
 
+.food-img{
+  height: 150px;
+  width: 250px;
+  border-radius: 15px;
+}
+
 .food-card h3 {
   margin-top: 0;
   margin-bottom: 8px;
