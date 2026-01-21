@@ -128,8 +128,7 @@ h2 {
   width: calc(100% - 350px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 16px;
+  padding: 0;
   gap: 16px;
   flex: 1;
   margin-top: 200px;
@@ -160,19 +159,24 @@ h2 {
   align-items: center;
   gap: 16px;
   width: 100%;
+  padding: 0 16px;
 }
 
 .category-headline {
   display: flex;
   align-items: center;
-  width: calc(100% + 32px);
+  width: 100%;
   height: 60px;
   background-color: #e76c1f;
   background-position: center;
   background-size: cover;
   color: white;
   font-size: 18px;
-  padding-inline: max(32px, calc((100% - 1440px) / 2 + 16px));
+  box-sizing: border-box;
+  
+  /* Text-Ausrichtung: */
+  /* Sorgt dafür, dass der Text links bündig mit den Karten beginnt */
+  padding-inline: max(16px, calc((100% - 1440px) / 2 + 16px));
 }
 
 .food-card {

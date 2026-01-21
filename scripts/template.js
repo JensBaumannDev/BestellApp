@@ -77,10 +77,7 @@ function renderFoodItems(items) {
 
   for (let category in htmlBuffers) {
     if (categoryRefs[category]) {
-      categoryRefs[category].innerHTML = `
-        <h3 class="category-headline">${category}</h3>
-        ${htmlBuffers[category]}
-      `;
+      categoryRefs[category].innerHTML = htmlBuffers[category];
     }
   }
 }
