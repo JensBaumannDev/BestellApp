@@ -171,6 +171,7 @@ h2 {
   background-size: cover;
   color: white;
   font-size: 18px;
+  padding-inline: max(32px, calc((100% - 1440px) / 2 + 16px));
 }
 
 .food-card {
