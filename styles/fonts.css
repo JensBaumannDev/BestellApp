@@ -1,87 +1,87 @@
 @font-face {
-    font-family: 'PalanquinDark';
-    src: url('../assets/fonts/PalanquinDark-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'PalanquinDark';
+  src: url('../assets/fonts/PalanquinDark-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PalanquinDark';
-    src: url('../assets/fonts/PalanquinDark-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'PalanquinDark';
+  src: url('../assets/fonts/PalanquinDark-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PalanquinDark';
-    src: url('../assets/fonts/PalanquinDark-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'PalanquinDark';
+  src: url('../assets/fonts/PalanquinDark-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'PalanquinDark';
-    src: url('../assets/fonts/PalanquinDark-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'PalanquinDark';
+  src: url('../assets/fonts/PalanquinDark-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../fonts/Palanquin-Thin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../fonts/Palanquin-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../fonts/Palanquin-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../fonts/Palanquin-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../fonts/Palanquin-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../fonts/Palanquin-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../assets/fonts/Palanquin-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../assets/fonts/Palanquin-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../assets/fonts/Palanquin-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Palanquin';
-    src: url('../assets/fonts/Palanquin-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Palanquin';
+  src: url('../assets/fonts/Palanquin-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
