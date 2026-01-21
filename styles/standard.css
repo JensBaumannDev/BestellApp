@@ -253,12 +253,14 @@ width: 80px;
 
 /* #region Footer */
 footer {
+  position:static;
   height: 120px;
   background-color: #e76c1f;
   width: 100%;
   margin-top: auto;
   display: flex;
   align-items: center;
+  z-index: 50;
 }
 
 .footer-content {
