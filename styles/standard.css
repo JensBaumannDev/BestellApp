@@ -132,7 +132,6 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: 0;
-  gap: 16px;
   flex: 1;
   margin-top: 200px;
 }
@@ -179,6 +178,8 @@ h2 {
   color: white;
   box-sizing: border-box;
   padding-inline: max(16px, calc((100% - 1440px) / 2 + 16px));
+  margin-bottom: 32px;
+  margin-top: 32px;
 }
 
 .headline-icon {
@@ -197,7 +198,6 @@ h2 {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  margin-bottom: 12px;
 }
 
 .food-img {
@@ -274,6 +274,7 @@ footer {
   display: flex;
   align-items: center;
   z-index: 50;
+  margin-top: 32px;
 }
 
 .footer-content {
