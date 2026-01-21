@@ -3,7 +3,7 @@
   color: black;
   box-sizing: border-box;
   margin: 0;
-  font-family: "PalanquinDark", sans-serif;
+  font-family: "Palanquin", sans-serif;
 }
 
 body {
@@ -18,7 +18,9 @@ body {
 
 /* #region Typography Defaults */
 h1 {
+  font-family: "PalanquinDark", sans-serif;
   font-weight: 700;
+  font-size: 48px;
 }
 
 h2 {
@@ -112,8 +114,9 @@ h2 {
 }
 
 .restaurant-title-container p {
-  font-size: 21px;
-  font-weight: 400;
+  font-family: "Palanquin", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .restaurant-title-container h1 span {
@@ -163,6 +166,9 @@ h2 {
 }
 
 .category-headline {
+  font-family: "PalanquinDark", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -171,14 +177,13 @@ h2 {
   background-position: center;
   background-size: cover;
   color: white;
-  font-size: 18px;
   box-sizing: border-box;
   padding-inline: max(16px, calc((100% - 1440px) / 2 + 16px));
 }
 
 .headline-icon {
-height: 80px;
-width: 80px;
+  height: 120px;
+  width: 100px;
 }
 
 .food-card {
@@ -195,19 +200,25 @@ width: 80px;
   margin-bottom: 12px;
 }
 
-.food-img{
+.food-img {
   height: 150px;
   width: 250px;
   border-radius: 15px;
   margin-right: 16px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.200);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border: 1px solid white;
 }
 
 .food-card h3 {
+  font-weight: 600;
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 19.2px;
+  font-size: 24px;
+}
+
+.food-card p {
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .food-card:hover {
@@ -244,6 +255,8 @@ width: 80px;
   width: auto;
   align-self: flex-end;
   margin-left: auto;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .add-btn:hover {
@@ -253,7 +266,7 @@ width: 80px;
 
 /* #region Footer */
 footer {
-  position:static;
+  position: static;
   height: 120px;
   background-color: #e76c1f;
   width: 100%;
@@ -275,12 +288,15 @@ footer {
 
 .footer-content p {
   color: white;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .footer-link {
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .footer-link:hover {

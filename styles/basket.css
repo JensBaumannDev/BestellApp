@@ -17,6 +17,11 @@
   animation-range: 0px 120px;
 }
 
+.basket-wrapper h2{
+  font-size: 32px;
+  font-weight: 700;
+}
+
 @keyframes adjustBasket {
   to {
     top: 0;
@@ -67,6 +72,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .empty-msg {

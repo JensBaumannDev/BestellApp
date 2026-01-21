@@ -1,3 +1,4 @@
+/* #region FONT: Palanquin-Darf */
 @font-face {
     font-family: 'PalanquinDark';
     src: url('../assets/fonts/PalanquinDark-Regular.ttf') format('truetype');
@@ -25,3 +26,65 @@
     font-weight: 700;
     font-style: normal;
 }
+/* #endregion */
+
+
+
+/* #region FONT: Palanquin */
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Palanquin';
+    src: url('fonts/Palanquin-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* #endregion */
