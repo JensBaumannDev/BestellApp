@@ -183,7 +183,6 @@ h2 {
   background-color: #ffffff;
   box-shadow: 0 0 5px rgb(240, 240, 240);
   display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -194,6 +193,9 @@ h2 {
   height: 150px;
   width: 250px;
   border-radius: 15px;
+  margin-right: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.200);
+  border: 1px solid white;
 }
 
 .food-card h3 {
@@ -235,6 +237,7 @@ h2 {
   cursor: pointer;
   width: auto;
   align-self: flex-end;
+  margin-left: auto;
 }
 
 .add-btn:hover {
