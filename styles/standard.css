@@ -57,8 +57,8 @@ h2 {
 }
 
 .nav-logo {
-  height: 35px;
-  width: auto;
+  height: 100px;
+  width: 100px;
   object-fit: contain;
 }
 
