@@ -4,9 +4,10 @@
   align-items: center;
   position: fixed;
   right: 0;
-  top: 120px;
   width: 350px;
-  height: calc(100vh - 120px);
+  top: 0;
+  height: 100vh;
+  transform: translateY(120px);
   background-color: #ffffff;
   z-index: 50;
   overflow-y: auto;
@@ -15,17 +16,17 @@
   animation: adjustBasket linear forwards;
   animation-timeline: scroll();
   animation-range: 0px 120px;
+  will-change: transform;
 }
 
-.basket-wrapper h2{
+.basket-wrapper h2 {
   font-size: 32px;
   font-weight: 700;
 }
 
 @keyframes adjustBasket {
   to {
-    top: 0;
-    height: 100vh;
+    transform: translateY(0);
   }
 }
 
