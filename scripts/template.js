@@ -53,11 +53,15 @@ function getFoodData(foodName) {
 function getBasketItemTemplate(item) {
   let formattedPrice = item.price.toFixed(2).replace(".", ",");
   return `
-    <div class="basket-content-inner">
+    <div class="basket-container">
+        <div class="basket-container-top">
         <span>${item.name}</span>
         <span>${formattedPrice} €</span>
         <img src="./assets/icons/delete.png" alt="Papierkorb-Logo">
-        <button class="order-button" id="orderNow">Bezahlen</button>
+        </div>
+        <div class="basket-container-bottom">
+        <button class="order-button" id="orderNow">Bezahlen ${formattedPrice} €</button>
+        </div>
     </div>
   `;
 }
@@ -109,10 +113,10 @@ function renderBasket() {
         <h2>Warenkorb</h2>
         <div class="basket-toggle-container">
             <button class="toggle-btn ${isDelivery ? "active" : ""}" onclick="setDelivery(true)">
-                Lieferung
+                Lieferung<br><span class="basket-toggle-deliverinfo">20-25 min.</span> 
             </button>
             <button class="toggle-btn ${!isDelivery ? "active" : ""}" onclick="setDelivery(false)">
-                Abholung
+                Abholung<br><span class="basket-toggle-deliverinfo">15 min.</span>  
             </button>
         </div>
         ${basketContent}
