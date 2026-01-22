@@ -49,14 +49,14 @@
   border-radius: 10px;
   cursor: pointer;
   background-color: transparent;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 18px;
   transition: all 0.2s ease;
 }
 
 .toggle-btn.active {
   background-color: white;
-  color: #e76c1f;
+  color: #be0231;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -99,7 +99,7 @@
   padding: 20px 0;
 }
 
-.empty-basket{
+.empty-basket {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +107,7 @@
 
 .order-button {
   width: 100%;
-  background-color:#e76c1f;
+  background-color: #e76c1f;
   border-radius: 10px;
   padding: 14px 20px;
   border: none;

@@ -36,7 +36,7 @@ h2 {
 
 /* #region Header & Navigation */
 .top-bar {
-  background-color: #e76c1f;
+  background-color: #ffffff;
   height: 120px;
   width: 100%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
@@ -125,7 +125,7 @@ h2 {
 
 .restaurant-title-container h1 span {
   font-family: 'PalanquinDark';
-  color: #e76c1f;
+  color: #be0231;
   font-weight: 700;
 }
 /* #endregion */
@@ -182,7 +182,7 @@ h2 {
   align-items: center;
   width: 100%;
   height: 60px;
-  background-color: #e76c1f;
+  background-color: #be0231;
   background-position: center;
   background-size: cover;
   color: white;
@@ -281,7 +281,7 @@ h2 {
 footer {
   position: static;
   height: 120px;
-  background-color: #e76c1f;
+  background-color: #be0231;
   width: 100%;
   margin-top: auto;
   display: flex;
