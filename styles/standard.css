@@ -124,6 +124,7 @@ h2 {
 }
 
 .restaurant-title-container h1 span {
+  font-family: 'PalanquinDark';
   color: #e76c1f;
   font-weight: 700;
 }
