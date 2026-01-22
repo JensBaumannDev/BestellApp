@@ -1,12 +1,17 @@
+/* Referenzen */
 let burgerRef = document.getElementById("burger-content");
 let pizzaRef = document.getElementById("pizza-content");
 let noodlesRef = document.getElementById("noodles-content");
 let salatRef = document.getElementById("extra-content");
+
+/* Globale Variablen */
 let isDelivery = true;
 let basketData = [];
 
-function foodData() {
-  getFoodCategory(foodDataBase);
+/* Initialisierung */
+function init() {
+  renderFoodItems(foodDataBase);
+  renderBasket();
 }
 
 const categoryRefs = {
@@ -16,9 +21,7 @@ const categoryRefs = {
   Beilagen: document.getElementById("extra-content"),
 };
 
-function foodData() {
-  renderFoodItems(foodDataBase);
-}
+/* --- Templates & Rendering --- */
 
 function getFoodTemplate(food) {
   let formattedPrice = food.price.toFixed(2).replace(".", ",");
@@ -32,37 +35,6 @@ function getFoodTemplate(food) {
           </div>
           <button class="add-btn" onclick="addToBasket('${food.name}')">Hinzufügen</button>
       </div>
-  `;
-}
-
-function addToBasket(foodName) {
-  const foodItem = getFoodData(foodName);
-  basketData.push(foodItem);
-  renderBasket();
-}
-
-function getFoodData(foodName) {
-  for (let index = 0; index < foodDataBase.length; index++) {
-    if (foodName == foodDataBase[index].name) {
-      return foodDataBase[index];
-    }
-  }
-  return null;
-}
-
-function getBasketItemTemplate(item) {
-  let formattedPrice = item.price.toFixed(2).replace(".", ",");
-  return `
-    <div class="basket-container">
-        <div class="basket-container-top">
-        <span>${item.name}</span>
-        <span>${formattedPrice} €</span>
-        <img src="./assets/icons/delete.png" alt="Papierkorb-Logo">
-        </div>
-        <div class="basket-container-bottom">
-        <button class="order-button" id="orderNow">Bezahlen ${formattedPrice} €</button>
-        </div>
-    </div>
   `;
 }
 
@@ -88,27 +60,81 @@ function renderFoodItems(items) {
   }
 }
 
-function setDelivery(status) {
-  isDelivery = status;
+/* --- Warenkorb Logik --- */
+
+function addToBasket(foodName) {
+  const foodItem = getFoodData(foodName);
+  basketData.push(foodItem);
   renderBasket();
+}
+
+function getFoodData(foodName) {
+  for (let index = 0; index < foodDataBase.length; index++) {
+    if (foodName == foodDataBase[index].name) {
+      return foodDataBase[index];
+    }
+  }
+  return null;
+}
+
+function deleteFromBasket(index) {
+  basketData.splice(index, 1);
+  renderBasket();
+}
+
+function getBasketItemTemplate(item, index) {
+  let formattedPrice = item.price.toFixed(2).replace(".", ",");
+  return `
+    <div class="basket-item">
+        <div class="basket-info">
+            <span class="basket-amount">1x</span>
+            <span class="basket-name">${item.name}</span>
+        </div>
+        <div class="basket-right">
+            <span class="basket-price">${formattedPrice} €</span>
+            <img src="./assets/icons/delete.png" alt="Löschen" class="trash-icon" onclick="deleteFromBasket(${index})">
+        </div>
+    </div>
+  `;
 }
 
 function renderBasket() {
   let basketRef = document.getElementById("basket-wrapper");
-
   let itemsHtml = "";
+  let totalSum = 0;
+
+  // 1. Items generieren und Summe berechnen
   for (let index = 0; index < basketData.length; index++) {
-    itemsHtml += getBasketItemTemplate(basketData[index]);
+    itemsHtml += getBasketItemTemplate(basketData[index], index);
+    totalSum += basketData[index].price;
   }
+
+  let formattedTotal = totalSum.toFixed(2).replace(".", ",");
+
+  // 2. Inhalt zusammenbauen
   let basketContent;
   if (basketData.length > 0) {
     basketContent = `
         <div id="basket-items-container" class="basket-items-list">
             ${itemsHtml}
-        </div>`;
+        </div>
+  <div class="basket-total-row">
+     <span>Gesamtsumme:</span>
+     <strong>${formattedTotal} €</strong>
+</div>
+<button onclick="submitOrder()" class="order-button">
+    Bestellen (${formattedTotal} €)
+</button>
+    `;
   } else {
-    basketContent = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p><img src="./assets/icons/shopping_cart.png" alt="Leerer Einkaufskorb">`;
+    basketContent = `
+        <div class="empty-basket">
+            <img src="./assets/icons/shopping_cart.png" alt="Leer">
+            <p class="empty-msg">Dein Warenkorb ist noch leer.</p>
+        </div>`;
   }
+
+  // 3. Alles in den Wrapper schreiben
   basketRef.innerHTML = `
         <h2>Warenkorb</h2>
         <div class="basket-toggle-container">
@@ -123,5 +149,66 @@ function renderBasket() {
     `;
 }
 
-renderBasket();
-foodData();
+function setDelivery(status) {
+  isDelivery = status;
+  renderBasket();
+}
+
+/* --- Dialog Logik --- */
+
+function openOrderDialog(totalAmount) {
+  let dialogRef = document.getElementById("dialog");
+  let formattedTotal = totalAmount.toFixed(2).replace(".", ",");
+
+  dialogRef.innerHTML = `
+    <div class="dialog-overlay" onclick="closeDialog()">
+      <div class="dialog-content" onclick="event.stopPropagation()">
+        
+        <h2>Bestellung abschließen</h2>
+        <p>Möchtest du die Bestellung für <b>${formattedTotal} €</b> aufgeben?</p>
+        
+        <div class="dialog-buttons">
+           <button class="confirm-btn" onclick="submitOrder()">Ja, jetzt bestellen</button>
+           <button class="close-btn" onclick="closeDialog()">Abbrechen</button>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  dialogRef.classList.remove("d-none");
+}
+
+function closeDialog() {
+  document.getElementById("dialog").classList.add("d-none");
+}
+
+function submitOrder() {
+  // 1. Array leeren
+  basketData = [];
+  
+  // 2. Warenkorb im Hintergrund aktualisieren (zeigt dann "Leer" an)
+  renderBasket();
+
+  // 3. Erfolgs-Dialog anzeigen
+  let dialogRef = document.getElementById("dialog");
+  dialogRef.innerHTML = `
+    <div class="dialog-overlay" onclick="closeDialog()">
+      <div class="dialog-content" onclick="event.stopPropagation()">
+        
+        <h2>Vielen Dank!</h2>
+        <p>Deine Bestellung wurde aufgenommen und befindet sich bald auf den Weg zu dir!</p>
+
+        
+        <div class="dialog-buttons">
+           <button class="confirm-btn" onclick="closeDialog()">Schließen</button>
+        </div>
+
+      </div>
+    </div>
+  `;
+  dialogRef.classList.remove("d-none");
+}
+
+// Starten
+init();
