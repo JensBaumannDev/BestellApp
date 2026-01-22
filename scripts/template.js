@@ -195,7 +195,7 @@ function submitOrder() {
   dialogRef.innerHTML = `
     <div class="dialog-overlay" onclick="closeDialog()">
       <div class="dialog-content" onclick="event.stopPropagation()">
-        
+        <img src="./assets/icons/delivercar.png" alt="Lieferwagen Logo">
         <h2>Vielen Dank!</h2>
         <p>Deine Bestellung wurde aufgenommen und befindet sich bald auf den Weg zu dir!</p>
 
