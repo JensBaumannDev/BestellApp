@@ -56,6 +56,8 @@ function getBasketItemTemplate(item) {
     <div class="basket-content-inner">
         <span>${item.name}</span>
         <span>${formattedPrice} €</span>
+        <img src="./assets/icons/delete.png" alt="Papierkorb-Logo">
+        <button class="order-button" id="orderNow">Bezahlen</button>
     </div>
   `;
 }
