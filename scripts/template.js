@@ -107,7 +107,7 @@ function renderBasket() {
             ${itemsHtml}
         </div>`;
   } else {
-    basketContent = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p>`;
+    basketContent = `<p class="empty-msg">Dein Warenkorb ist noch leer.</p><img src="./assets/icons/shopping_cart.png" alt="Leerer Einkaufskorb">`;
   }
   basketRef.innerHTML = `
         <h2>Warenkorb</h2>
