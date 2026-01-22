@@ -129,8 +129,8 @@ function renderBasket() {
   } else {
     basketContent = `
         <div class="empty-basket">
-            <img src="./assets/icons/shopping_cart.png" alt="Leer">
             <p class="empty-msg">Dein Warenkorb ist noch leer.</p>
+            <img src="./assets/icons/shopping_cart.png" alt="Leer">
         </div>`;
   }
 
