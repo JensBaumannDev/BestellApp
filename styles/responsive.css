@@ -125,7 +125,6 @@
     display: none !important;
   }
 
-
   body:has(.basket-wrapper.mobile-hidden) {
     padding-bottom: 0;
   }
@@ -140,7 +139,7 @@
     font-size: 32px;
   }
   .burger-content-inner {
-    margin-top: 32px;
+    margin-top: 8px;
   }
 }
 
@@ -160,11 +159,24 @@
   .burger-menu {
     display: none;
   }
+
+  .top-bar-content {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 379px) {
-  .burger-content-inner {
-    margin-top: 60px;
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .restaurant-title-container p{
+    font-size: 18px;
+  }
+
+  .content-wrapper{
+    margin-top: 40px;
   }
 }
 
