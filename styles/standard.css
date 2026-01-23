@@ -275,6 +275,11 @@ h2 {
 }
 /* #endregion */
 
+.dialog-content img{
+  height: 60px;
+  width: 60px;
+}
+
 /* #region Footer */
 footer {
   position: static;
