@@ -123,7 +123,7 @@ h2 {
 }
 
 .restaurant-title-container h1 span {
-  font-family: 'PalanquinDark';
+  font-family: "PalanquinDark";
   color: #be0231;
   font-weight: 700;
 }
@@ -169,8 +169,8 @@ h2 {
 }
 
 .pizza-content-inner {
-    min-height: 400px;
-    width: 100%;
+  min-height: 400px;
+  width: 100%;
 }
 
 .category-headline {

@@ -136,7 +136,7 @@ function renderBasket() {
 
   // 3. Alles in den Wrapper schreiben
   basketRef.innerHTML = `
-        <h2>Warenkorb</h2>
+        <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
         <div class="basket-toggle-container">
             <button class="toggle-btn ${isDelivery ? "active" : ""}" onclick="setDelivery(true)">
                 Lieferung<br><span class="basket-toggle-deliverinfo">20-25 min.</span> 
@@ -208,6 +208,11 @@ function submitOrder() {
     </div>
   `;
   dialogRef.classList.remove("d-none");
+}
+
+function toggleMobileBasket() {
+  const basket = document.getElementById("basket-wrapper");
+  basket.classList.toggle("open");
 }
 
 // Starten
