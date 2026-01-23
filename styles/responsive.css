@@ -194,11 +194,11 @@
     color: #666;
   }
 
-.nav-item img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
+  .nav-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
 
   .basket-icon-container {
     position: relative;
@@ -209,8 +209,8 @@
 
   .badge {
     position: absolute;
-    top: -12px;
-    right: -14px;
+    top: -8px;
+    right: -8px;
     background-color: #be0231;
     color: #ffffff !important;
     width: 26px;
