@@ -125,10 +125,6 @@
     margin: 0 10px;
   }
 
-  .burger-menu {
-    margin-right: 16px;
-  }
-
   .category-headline {
     justify-content: center;
   }
@@ -153,6 +149,10 @@
     flex-direction: column;
     width: 100%;
     gap: 16px;
+  }
+
+  .burger-menu{
+    display: none;
   }
 }
 /* #endregion */
