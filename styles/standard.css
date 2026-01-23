@@ -192,10 +192,9 @@ h2 {
 }
 
 .headline-icon {
-  height: 90px;
-  width: 90px;
+  height: 60px;
+  width: 60px;
   margin-right: 24px;
-  transform: translateY(-15px);
 }
 
 .food-card {
