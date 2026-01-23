@@ -77,4 +77,73 @@
   .basket-wrapper.open .empty-basket {
     display: flex;
   }
+
+  .dialog-overlay {
+    z-index: 10000 !important;
+    padding: 16px;
+  }
+
+  .dialog-content {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 0 10px;
+  }
+
+  .dialog-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .confirm-btn,
+  .close-btn {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-card {
+    flex-direction: column;
+  }
+
+  .category-headline {
+    font-size: 32px;
+  }
+  .burger-content-inner {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-headline {
+    font-size: 16px;
+  }
+
+  .burger-content-inner {
+    margin-top: 16px;
+  }
+
+  .price {
+    position: unset;
+  }
+}
+
+@media (max-width: 379px) {
+  .burger-content-inner {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 351px) {
+  .burger-content-inner {
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .headline-icon {
+    margin-right: 16px;
+  }
 }

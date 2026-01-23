@@ -184,13 +184,13 @@ function closeDialog() {
 }
 
 function submitOrder() {
-  // 1. Array leeren
   basketData = [];
-  
-  // 2. Warenkorb im Hintergrund aktualisieren (zeigt dann "Leer" an)
   renderBasket();
 
-  // 3. Erfolgs-Dialog anzeigen
+  if (window.innerWidth <= 1000) {
+    document.getElementById("basket-wrapper").classList.remove("open");
+  }
+
   let dialogRef = document.getElementById("dialog");
   dialogRef.innerHTML = `
     <div class="dialog-overlay" onclick="closeDialog()">
@@ -198,12 +198,9 @@ function submitOrder() {
         <img src="./assets/icons/delivercar.png" alt="Lieferwagen Logo">
         <h2>Vielen Dank!</h2>
         <p>Deine Bestellung wurde aufgenommen und befindet sich bald auf den Weg zu dir!</p>
-
-        
         <div class="dialog-buttons">
            <button class="confirm-btn" onclick="closeDialog()">Schließen</button>
         </div>
-
       </div>
     </div>
   `;
