@@ -151,8 +151,12 @@
     gap: 16px;
   }
 
-  .burger-menu{
+  .burger-menu {
     display: none;
+  }
+
+  .top-bar-content {
+    justify-content: center;
   }
 }
 /* #endregion */
@@ -208,10 +212,6 @@
 
   .burger-menu {
     display: none;
-  }
-
-  .top-bar-content {
-    justify-content: center;
   }
 }
 /* #endregion */
