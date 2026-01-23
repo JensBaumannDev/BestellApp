@@ -203,7 +203,7 @@ function submitOrder() {
       <div class="dialog-content" onclick="event.stopPropagation()">
         <img src="./assets/icons/delivercar.png" alt="Lieferwagen Logo">
         <h2>Vielen Dank!</h2>
-        <p>Deine Bestellung wurde aufgenommen und befindet sich bald auf den Weg zu dir!</p>
+        <p>Deine Bestellung wurde aufgenommen und befindet sich bald auf dem Weg zu dir!</p>
         <div class="dialog-buttons">
            <button class="confirm-btn" onclick="closeDialog()">Schließen</button>
         </div>
