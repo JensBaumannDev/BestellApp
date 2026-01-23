@@ -232,3 +232,9 @@ footer {
   text-decoration: underline;
 }
 /* #endregion */
+
+/* #region Bottom Navigation (Mobile Only) */
+.bottom-nav {
+  display: none;
+}
+/* #endregion */

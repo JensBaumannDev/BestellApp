@@ -52,47 +52,48 @@ function renderFoodItems(items) {
     }
   }
 }
+
+function getBasketItemTemplate(item, index) {
+  let formattedPrice = item.price.toFixed(2).replace(".", ",");
+  return `
+        <div class="basket-item">
+            <div class="basket-item-left">
+                <span>1x</span>
+                <span>${item.name}</span>
+            </div>
+            <div class="basket-item-right">
+                <span>${formattedPrice} €</span>
+                <img src="./assets/icons/trash.svg" alt="Löschen" onclick="deleteFromBasket(${index})">
+            </div>
+        </div>
+    `;
+}
 //#endregion
 
 //#region Basket Logic
-function addToBasket(foodName) {
-  const foodItem = getFoodData(foodName);
-  basketData.push(foodItem);
-  renderBasket();
+function getFoodData(foodName) {
+  return foodDataBase.find((item) => item.name === foodName);
 }
 
-function getFoodData(foodName) {
-  for (let index = 0; index < foodDataBase.length; index++) {
-    if (foodName == foodDataBase[index].name) {
-      return foodDataBase[index];
-    }
+function addToBasket(foodName) {
+  const foodItem = getFoodData(foodName);
+  if (foodItem) {
+    basketData.push(foodItem);
+    updateBasketBadge();
+    renderBasket();
   }
-  return null;
 }
 
 function deleteFromBasket(index) {
   basketData.splice(index, 1);
   renderBasket();
-}
-
-function getBasketItemTemplate(item, index) {
-  let formattedPrice = item.price.toFixed(2).replace(".", ",");
-  return `
-    <div class="basket-item">
-        <div class="basket-info">
-            <span class="basket-amount">1x</span>
-            <span class="basket-name">${item.name}</span>
-        </div>
-        <div class="basket-right">
-            <span class="basket-price">${formattedPrice} €</span>
-            <img src="./assets/icons/delete.png" alt="Löschen" class="trash-icon" onclick="deleteFromBasket(${index})">
-        </div>
-    </div>
-  `;
+  updateBasketBadge();
 }
 
 function renderBasket() {
   let basketRef = document.getElementById("basket-wrapper");
+  if (!basketRef) return;
+
   let itemsHtml = "";
   let totalSum = 0;
 
@@ -102,57 +103,52 @@ function renderBasket() {
   }
 
   let formattedTotal = totalSum.toFixed(2).replace(".", ",");
-  let basketContent;
 
   if (basketData.length === 0) {
     basketRef.classList.add("mobile-hidden");
+    basketRef.classList.remove("open");
+    basketRef.innerHTML = `
+        <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
+        <div id="basket-content" class="empty-basket">Dein Warenkorb ist leer.</div>
+    `;
   } else {
     basketRef.classList.remove("mobile-hidden");
-  }
-
-  if (basketData.length > 0) {
-    basketContent = `
-        <div id="basket-items-container" class="basket-items-list">
-            ${itemsHtml}
-        </div>
-        <div class="basket-total-row">
-             <span>Gesamtsumme:</span>
-             <strong>${formattedTotal} €</strong>
-        </div>
-        <button onclick="submitOrder()" class="order-button">
-            Bestellen (${formattedTotal} €)
-        </button>
-    `;
-  } else {
-    basketContent = `
-        <div class="empty-basket">
-            <p class="empty-msg">Dein Warenkorb ist noch leer.</p>
-            <img src="./assets/icons/shopping_cart.png" alt="Leer">
-        </div>`;
-  }
-
-  basketRef.innerHTML = `
+    basketRef.innerHTML = `
         <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
         <div class="basket-toggle-container">
-            <button class="toggle-btn ${isDelivery ? "active" : ""}" onclick="setDelivery(true)">
-                Lieferung<br><span class="basket-toggle-deliverinfo">20-25 min.</span> 
-            </button>
-            <button class="toggle-btn ${!isDelivery ? "active" : ""}" onclick="setDelivery(false)">
-                Abholung<br><span class="basket-toggle-deliverinfo">15 min.</span>  
-            </button>
+            <button class="toggle-btn ${isDelivery ? "active" : ""}" onclick="setDelivery(true)">Lieferung</button>
+            <button class="toggle-btn ${!isDelivery ? "active" : ""}" onclick="setDelivery(false)">Abholung</button>
         </div>
-        ${basketContent}
+        <div id="basket-content">${itemsHtml}</div>
+        <div class="basket-total-row">
+            <span>Gesamt:</span>
+            <span>${formattedTotal} €</span>
+        </div>
+        <button class="order-button" onclick="openOrderDialog(${totalSum})">Bestellen</button>
     `;
+  }
+  updateBasketBadge();
 }
+//#endregion
 
-function setDelivery(status) {
-  isDelivery = status;
-  renderBasket();
+//#region Navigation UI
+function updateBasketBadge() {
+  let badge = document.getElementById("basket-badge");
+  if (badge) {
+    if (basketData.length > 0) {
+      badge.classList.remove("d-none");
+      badge.innerHTML = basketData.length;
+    } else {
+      badge.classList.add("d-none");
+    }
+  }
 }
 
 function toggleMobileBasket() {
-  const basket = document.getElementById("basket-wrapper");
-  basket.classList.toggle("open");
+  let basketRef = document.getElementById("basket-wrapper");
+  if (basketData.length > 0) {
+    basketRef.classList.toggle("open");
+  }
 }
 //#endregion
 
@@ -164,19 +160,15 @@ function openOrderDialog(totalAmount) {
   dialogRef.innerHTML = `
     <div class="dialog-overlay" onclick="closeDialog()">
       <div class="dialog-content" onclick="event.stopPropagation()">
-        
         <h2>Bestellung abschließen</h2>
         <p>Möchtest du die Bestellung für <b>${formattedTotal} €</b> aufgeben?</p>
-        
         <div class="dialog-buttons">
            <button class="confirm-btn" onclick="submitOrder()">Ja, jetzt bestellen</button>
            <button class="close-btn" onclick="closeDialog()">Abbrechen</button>
         </div>
-
       </div>
     </div>
   `;
-
   dialogRef.classList.remove("d-none");
 }
 
@@ -186,6 +178,7 @@ function closeDialog() {
 
 function submitOrder() {
   basketData = [];
+  updateBasketBadge();
   renderBasket();
 
   if (window.innerWidth <= 1000) {
@@ -198,14 +191,13 @@ function submitOrder() {
       <div class="dialog-content" onclick="event.stopPropagation()">
         <img src="./assets/icons/delivercar.svg" alt="Lieferwagen Logo">
         <h2>Vielen Dank!</h2>
-        <p>Deine Bestellung wurde aufgenommen und befindet sich bald auf dem Weg zu dir!</p>
+        <p>Deine Bestellung wurde aufgenommen!</p>
         <div class="dialog-buttons">
            <button class="confirm-btn" onclick="closeDialog()">Schließen</button>
         </div>
       </div>
     </div>
   `;
-  dialogRef.classList.remove("d-none");
 }
 //#endregion
 

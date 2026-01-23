@@ -125,6 +125,23 @@
       </div>
       <div id="dialog" class="d-none"></div>
     </footer>
+    <nav class="bottom-nav">
+      <div class="nav-item">
+        <img src="./assets/icons/home.svg" alt="Home" />
+      </div>
+      <div class="nav-item">
+        <img src="./assets/icons/menu.svg" alt="Menu" />
+      </div>
+      <div class="nav-item">
+        <img src="./assets/icons/search.svg" alt="Search" />
+      </div>
+      <div class="nav-item" onclick="toggleMobileBasket()">
+        <div class="basket-icon-container">
+          <img src="./assets/icons/shopping_cart.svg" alt="Basket" />
+          <span id="basket-badge" class="badge d-none">0</span>
+        </div>
+      </div>
+    </nav>
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
   </body>
