@@ -101,6 +101,23 @@
     width: 100%;
     margin-top: 0;
   }
+
+  .burger-menu {
+    margin-right: 16px;
+  }
+
+footer {
+  padding-right: 0;
+  height: auto;
+  padding: 20px;
+}
+
+.footer-content {
+  width: 100%;
+  flex-direction: column;
+  gap: 16px;
+}
+
 }
 
 @media (max-width: 768px) {
@@ -127,6 +144,10 @@
 
   .price {
     position: unset;
+  }
+
+  .burger-menu {
+    display: none;
   }
 }
 

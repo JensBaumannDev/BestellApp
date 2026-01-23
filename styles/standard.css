@@ -279,37 +279,37 @@ h2 {
 /* #region Footer */
 footer {
   position: static;
-  height: 120px;
   background-color: #be0231;
   width: 100%;
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  z-index: 50;
+  height: 120px;
   margin-top: 48px;
+  padding-right: 350px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-content {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 16px;
+  width: fit-content;
   display: flex;
-  gap: 70px;
-  justify-content: center;
+  gap: 60px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-.footer-content p {
-  color: white;
-  font-weight: 400;
-  font-size: 18px;
+.footer-content > *:empty {
+  display: none !important;
 }
 
+.footer-content p,
 .footer-link {
-  text-decoration: none;
   color: white;
-  font-size: 18px;
   font-weight: 400;
+  font-size: 18px;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .footer-link:hover {
