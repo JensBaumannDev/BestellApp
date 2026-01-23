@@ -63,7 +63,7 @@ function getBasketItemTemplate(item, index) {
             </div>
             <div class="basket-item-right">
                 <span>${formattedPrice} €</span>
-                <img src="./assets/icons/trash.svg" alt="Löschen" onclick="deleteFromBasket(${index})">
+                <img src="./assets/icons/delete.png" alt="Löschen" onclick="deleteFromBasket(${index})">
             </div>
         </div>
     `;
@@ -71,6 +71,11 @@ function getBasketItemTemplate(item, index) {
 //#endregion
 
 //#region Basket Logic
+function setDelivery(status) {
+  isDelivery = status;
+  renderBasket();
+}
+
 function getFoodData(foodName) {
   return foodDataBase.find((item) => item.name === foodName);
 }
@@ -124,7 +129,7 @@ function renderBasket() {
             <span>Gesamt:</span>
             <span>${formattedTotal} €</span>
         </div>
-        <button class="order-button" onclick="openOrderDialog(${totalSum})">Bestellen</button>
+        <button class="order-button" onclick="submitOrder()">Bestellen</button>
     `;
   }
   updateBasketBadge();
@@ -153,25 +158,6 @@ function toggleMobileBasket() {
 //#endregion
 
 //#region Order & Dialog Logic
-function openOrderDialog(totalAmount) {
-  let dialogRef = document.getElementById("dialog");
-  let formattedTotal = totalAmount.toFixed(2).replace(".", ",");
-
-  dialogRef.innerHTML = `
-    <div class="dialog-overlay" onclick="closeDialog()">
-      <div class="dialog-content" onclick="event.stopPropagation()">
-        <h2>Bestellung abschließen</h2>
-        <p>Möchtest du die Bestellung für <b>${formattedTotal} €</b> aufgeben?</p>
-        <div class="dialog-buttons">
-           <button class="confirm-btn" onclick="submitOrder()">Ja, jetzt bestellen</button>
-           <button class="close-btn" onclick="closeDialog()">Abbrechen</button>
-        </div>
-      </div>
-    </div>
-  `;
-  dialogRef.classList.remove("d-none");
-}
-
 function closeDialog() {
   document.getElementById("dialog").classList.add("d-none");
 }
@@ -198,6 +184,7 @@ function submitOrder() {
       </div>
     </div>
   `;
+  dialogRef.classList.remove("d-none");
 }
 //#endregion
 

@@ -88,6 +88,29 @@
 }
 /* #endregion */
 
+/* #region Basket Items */
+.basket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.basket-item-left,
+.basket-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.basket-item-right img {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  object-fit: contain;
+}
+/* #endregion */
+
 /* #region Buttons */
 .add-btn {
   background-color: white;
@@ -105,5 +128,24 @@
 
 .add-btn:hover {
   background-color: #f2f2f2;
+}
+
+.confirm-btn {
+  background-color: #be0231;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  display: block;
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+.confirm-btn:hover {
+  background-color: #a0022a;
 }
 /* #endregion */

@@ -195,8 +195,12 @@
   }
 
   .nav-item img {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(85%) saturate(5441%)
+      hue-rotate(339deg) brightness(87%) contrast(108%);
     width: 28px;
     height: 28px;
+    object-fit: contain;
+    cursor: pointer;
   }
 
   .basket-icon-container {
