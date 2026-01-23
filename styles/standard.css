@@ -230,6 +230,9 @@ h2 {
 .food-card p {
   font-weight: 500;
   font-size: 16px;
+  text-align: justify;
+  hyphens: auto;
+  margin-right: 16px;
 }
 
 .food-card:hover {
@@ -275,7 +278,7 @@ h2 {
 }
 /* #endregion */
 
-.dialog-content img{
+.dialog-content img {
   height: 60px;
   width: 60px;
 }

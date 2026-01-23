@@ -93,18 +93,6 @@
     margin: 0 10px;
   }
 
-  .dialog-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .confirm-btn,
-  .close-btn {
-    width: 100%;
-    margin-top: 0;
-  }
-
   .burger-menu {
     margin-right: 16px;
   }
@@ -128,6 +116,20 @@
   body:has(.basket-wrapper.mobile-hidden) {
     padding-bottom: 0;
   }
+
+  .category-headline {
+    justify-content: center;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .food-card p{
+    text-align: justify;
+    hyphens: auto;
+    margin-right: 8px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -140,6 +142,15 @@
   }
   .burger-content-inner {
     margin-top: 8px;
+  }
+
+  .food-img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .price{
+    position: unset;
   }
 }
 
@@ -166,16 +177,15 @@
 }
 
 @media (max-width: 379px) {
-
   h1 {
     font-size: 32px;
   }
 
-  .restaurant-title-container p{
+  .restaurant-title-container p {
     font-size: 18px;
   }
 
-  .content-wrapper{
+  .content-wrapper {
     margin-top: 40px;
   }
 }
