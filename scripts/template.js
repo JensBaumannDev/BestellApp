@@ -113,6 +113,12 @@ function renderBasket() {
 
   // 2. Inhalt zusammenbauen
   let basketContent;
+  if (basketData.length === 0) {
+    basketRef.classList.add("mobile-hidden");
+  } else {
+    basketRef.classList.remove("mobile-hidden");
+  }
+
   if (basketData.length > 0) {
     basketContent = `
         <div id="basket-items-container" class="basket-items-list">

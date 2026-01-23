@@ -1,6 +1,6 @@
 @media (max-width: 1000px) {
   body {
-    padding-bottom: 80px; /* 80px für den Warenkorb + 20px Abstand */
+    padding-bottom: 80px;
   }
 
   .top-bar {
@@ -119,6 +119,15 @@
     width: 100%;
     flex-direction: column;
     gap: 16px;
+  }
+
+  .basket-wrapper.mobile-hidden {
+    display: none !important;
+  }
+
+
+  body:has(.basket-wrapper.mobile-hidden) {
+    padding-bottom: 0;
   }
 }
 
