@@ -1,3 +1,4 @@
+/* #region Tablet & Mobile Layout (Max 1000px) */
 @media (max-width: 1000px) {
   body {
     padding-bottom: 80px;
@@ -7,34 +8,36 @@
     padding-right: 0;
   }
 
-  .hero-section {
-    width: 100%;
-  }
-
+  .hero-section,
   .content-wrapper {
-    margin-right: 0;
     width: 100%;
+    margin-right: 0;
   }
 
+  /* --- Basket Mobile Logic --- */
   .basket-wrapper {
+    position: fixed; /* Sicherstellen, dass es fixed bleibt */
     top: auto;
     right: 0;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 80vh;
+    padding: 20px;
+    overflow: hidden;
     background-color: #ffffff;
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
     z-index: 999;
-    animation: none;
+    
+    /* Animation Reset & Slide Logic */
+    animation: none; 
     transform: translateY(calc(100% - 80px));
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
+    
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
 
   .basket-wrapper.open {
@@ -43,21 +46,21 @@
   }
 
   .basket-wrapper h2 {
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    margin: 0;
-    font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     min-height: 40px;
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
   }
 
   .basket-wrapper h2::after {
     content: "▲";
-    font-size: 16px;
     margin-left: 10px;
+    font-size: 16px;
     transition: transform 0.3s;
   }
 
@@ -65,6 +68,7 @@
     transform: rotate(180deg);
   }
 
+  /* Toggle Content Visibility */
   .basket-toggle-container,
   .basket-items-list,
   .basket-total-row,
@@ -81,6 +85,15 @@
     display: flex;
   }
 
+  .basket-wrapper.mobile-hidden {
+    display: none !important;
+  }
+
+  body:has(.basket-wrapper.mobile-hidden) {
+    padding-bottom: 0;
+  }
+
+  /* --- Dialog & Menu --- */
   .dialog-overlay {
     z-index: 10000 !important;
     padding: 16px;
@@ -97,26 +110,7 @@
     margin-right: 16px;
   }
 
-  footer {
-    padding-right: 0;
-    height: auto;
-    padding: 20px;
-  }
-
-  .footer-content {
-    width: 100%;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .basket-wrapper.mobile-hidden {
-    display: none !important;
-  }
-
-  body:has(.basket-wrapper.mobile-hidden) {
-    padding-bottom: 0;
-  }
-
+  /* --- Typography & Footer --- */
   .category-headline {
     justify-content: center;
   }
@@ -125,13 +119,27 @@
     text-align: left;
   }
 
-  .food-card p{
+  .food-card p {
+    margin-right: 8px;
     text-align: justify;
     hyphens: auto;
-    margin-right: 8px;
+  }
+
+  footer {
+    height: auto;
+    padding: 20px;
+    padding-right: 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
   }
 }
+/* #endregion */
 
+/* #region Mobile Breakpoint (Max 768px) */
 @media (max-width: 768px) {
   .food-card {
     flex-direction: column;
@@ -140,20 +148,23 @@
   .category-headline {
     font-size: 32px;
   }
+
   .burger-content-inner {
     margin-top: 8px;
   }
 
   .food-img {
-    object-fit: cover;
     width: 100%;
+    /* object-fit ist bereits global definiert */
   }
 
-  .price{
-    position: unset;
+  .price {
+    position: static; /* Setzt absolute Positionierung zurück */
   }
 }
+/* #endregion */
 
+/* #region Small Mobile (Max 480px) */
 @media (max-width: 480px) {
   .category-headline {
     font-size: 16px;
@@ -163,9 +174,7 @@
     margin-top: 16px;
   }
 
-  .price {
-    position: unset;
-  }
+  /* .price rule entfernt, da sie von 768px geerbt wird */
 
   .burger-menu {
     display: none;
@@ -175,7 +184,9 @@
     justify-content: center;
   }
 }
+/* #endregion */
 
+/* #region Tiny Screens & Specific Fixes */
 @media (max-width: 379px) {
   h1 {
     font-size: 32px;
@@ -201,3 +212,4 @@
     margin-right: 16px;
   }
 }
+/* #endregion */

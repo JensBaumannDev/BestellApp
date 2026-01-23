@@ -1,18 +1,6 @@
-/* Referenzen */
-let burgerRef = document.getElementById("burger-content");
-let pizzaRef = document.getElementById("pizza-content");
-let noodlesRef = document.getElementById("noodles-content");
-let salatRef = document.getElementById("extra-content");
-
-/* Globale Variablen */
+//#region Globals & Init
 let isDelivery = true;
 let basketData = [];
-
-/* Initialisierung */
-function init() {
-  renderFoodItems(foodDataBase);
-  renderBasket();
-}
 
 const categoryRefs = {
   Burger: document.getElementById("burger-content"),
@@ -21,8 +9,13 @@ const categoryRefs = {
   Beilagen: document.getElementById("extra-content"),
 };
 
-/* --- Templates & Rendering --- */
+function init() {
+  renderFoodItems(foodDataBase);
+  renderBasket();
+}
+//#endregion
 
+//#region Templates & Rendering
 function getFoodTemplate(food) {
   let formattedPrice = food.price.toFixed(2).replace(".", ",");
   return `
@@ -59,9 +52,9 @@ function renderFoodItems(items) {
     }
   }
 }
+//#endregion
 
-/* --- Warenkorb Logik --- */
-
+//#region Basket Logic
 function addToBasket(foodName) {
   const foodItem = getFoodData(foodName);
   basketData.push(foodItem);
@@ -103,16 +96,14 @@ function renderBasket() {
   let itemsHtml = "";
   let totalSum = 0;
 
-  // 1. Items generieren und Summe berechnen
   for (let index = 0; index < basketData.length; index++) {
     itemsHtml += getBasketItemTemplate(basketData[index], index);
     totalSum += basketData[index].price;
   }
 
   let formattedTotal = totalSum.toFixed(2).replace(".", ",");
-
-  // 2. Inhalt zusammenbauen
   let basketContent;
+
   if (basketData.length === 0) {
     basketRef.classList.add("mobile-hidden");
   } else {
@@ -124,13 +115,13 @@ function renderBasket() {
         <div id="basket-items-container" class="basket-items-list">
             ${itemsHtml}
         </div>
-  <div class="basket-total-row">
-     <span>Gesamtsumme:</span>
-     <strong>${formattedTotal} €</strong>
-</div>
-<button onclick="submitOrder()" class="order-button">
-    Bestellen (${formattedTotal} €)
-</button>
+        <div class="basket-total-row">
+             <span>Gesamtsumme:</span>
+             <strong>${formattedTotal} €</strong>
+        </div>
+        <button onclick="submitOrder()" class="order-button">
+            Bestellen (${formattedTotal} €)
+        </button>
     `;
   } else {
     basketContent = `
@@ -140,7 +131,6 @@ function renderBasket() {
         </div>`;
   }
 
-  // 3. Alles in den Wrapper schreiben
   basketRef.innerHTML = `
         <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
         <div class="basket-toggle-container">
@@ -160,8 +150,13 @@ function setDelivery(status) {
   renderBasket();
 }
 
-/* --- Dialog Logik --- */
+function toggleMobileBasket() {
+  const basket = document.getElementById("basket-wrapper");
+  basket.classList.toggle("open");
+}
+//#endregion
 
+//#region Order & Dialog Logic
 function openOrderDialog(totalAmount) {
   let dialogRef = document.getElementById("dialog");
   let formattedTotal = totalAmount.toFixed(2).replace(".", ",");
@@ -212,11 +207,6 @@ function submitOrder() {
   `;
   dialogRef.classList.remove("d-none");
 }
+//#endregion
 
-function toggleMobileBasket() {
-  const basket = document.getElementById("basket-wrapper");
-  basket.classList.toggle("open");
-}
-
-// Starten
 init();
