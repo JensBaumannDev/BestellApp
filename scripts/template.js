@@ -209,16 +209,4 @@ function submitOrder() {
 }
 //#endregion
 
-//#region Scroll Logic
-window.addEventListener("scroll", function() {
-  if (window.innerWidth > 1000) {
-    let basket = document.getElementById("basket-wrapper");
-    if (basket) {
-       let newTop = Math.max(0, 120 - window.scrollY);
-       basket.style.top = newTop + "px";
-       basket.style.height = `calc(100vh - ${newTop}px)`;
-    }
-  }
-});
-//#endregion
 init();

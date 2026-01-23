@@ -4,19 +4,43 @@
     padding-bottom: 80px;
   }
 
+  .main-layout {
+    flex-direction: column;
+  }
+
   .top-bar {
     padding-right: 0;
   }
 
-  .hero-section,
-  .content-wrapper {
+  .hero-section {
+    width: 100%;
+    margin-right: 0;
+    height: 350px;
+    margin-bottom: 0;
+  }
+
+  .profile-logo {
+    width: 160px;
+    height: 160px;
+    bottom: -80px;
+    border-width: 3px;
+  }
+
+  .restaurant-title-container {
+    margin-top: 110px;
+    margin-bottom: 60px;
+  }
+
+  .content-wrapper,
+  .burger-content-inner {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
     width: 100%;
     margin-right: 0;
   }
 
-  /* --- Basket Mobile Logic --- */
   .basket-wrapper {
-    position: fixed; /* Sicherstellen, dass es fixed bleibt */
+    position: fixed;
     top: auto;
     right: 0;
     bottom: 0;
@@ -29,13 +53,10 @@
     border-radius: 20px 20px 0 0;
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
     z-index: 999;
-    
-    /* Animation Reset & Slide Logic */
-    animation: none; 
+    animation: none;
     transform: translateY(calc(100% - 80px));
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
-    
     display: flex;
     flex-direction: column;
   }
@@ -68,7 +89,6 @@
     transform: rotate(180deg);
   }
 
-  /* Toggle Content Visibility */
   .basket-toggle-container,
   .basket-items-list,
   .basket-total-row,
@@ -93,7 +113,6 @@
     padding-bottom: 0;
   }
 
-  /* --- Dialog & Menu --- */
   .dialog-overlay {
     z-index: 10000 !important;
     padding: 16px;
@@ -110,7 +129,6 @@
     margin-right: 16px;
   }
 
-  /* --- Typography & Footer --- */
   .category-headline {
     justify-content: center;
   }
@@ -149,32 +167,44 @@
     font-size: 32px;
   }
 
-  .burger-content-inner {
-    margin-top: 8px;
-  }
-
   .food-img {
     width: 100%;
-    /* object-fit ist bereits global definiert */
   }
 
   .price {
-    position: static; /* Setzt absolute Positionierung zurück */
+    position: static;
   }
 }
 /* #endregion */
 
 /* #region Small Mobile (Max 480px) */
 @media (max-width: 480px) {
-  .category-headline {
-    font-size: 16px;
+  .hero-section {
+    height: 250px;
+  }
+
+  .profile-logo {
+    width: 120px;
+    height: 120px;
+    bottom: -60px;
+  }
+
+  .restaurant-title-container {
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+
+  .restaurant-title-container p {
+    padding: 0 16px;
   }
 
   .burger-content-inner {
-    margin-top: 16px;
+    margin-top: 0 !important;
   }
 
-  /* .price rule entfernt, da sie von 768px geerbt wird */
+  .category-headline {
+    font-size: 16px;
+  }
 
   .burger-menu {
     display: none;
@@ -183,11 +213,10 @@
   .top-bar-content {
     justify-content: center;
   }
-
 }
 /* #endregion */
 
-/* #region Tiny Screens & Specific Fixes */
+/* #region Old Screens & Specific Fixes */
 @media (max-width: 379px) {
   h1 {
     font-size: 32px;
@@ -195,16 +224,6 @@
 
   .restaurant-title-container p {
     font-size: 18px;
-  }
-
-  .content-wrapper {
-    margin-top: 40px;
-  }
-}
-
-@media (max-width: 351px) {
-  .burger-content-inner {
-    margin-top: 150px;
   }
 }
 

@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="./styles/basket.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
-    <link rel="icon" type="image/svg+xml" href="./assets/img/logo-white-box.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./assets/img/logo-white-box.png"
+    />
   </head>
   <body>
     <nav class="top-bar">
@@ -28,83 +32,90 @@
         </div>
       </div>
     </nav>
-    <header class="hero-section">
-      <img
-        src="./assets/img/hero.png"
-        fetchpriority="high"
-        class="hero-image"
-        alt="Header"
-        width="1440"
-        height="500"
-      />
-      <img
-        src="./assets/img/burger-logo.png"
-        class="profile-logo"
-        alt="Restaurant Logo"
-        width="200"
-        height="200"
-      />
-      <div class="restaurant-title-container">
-        <h1><span>BURGER</span> HAUS</h1>
-        <p>Das Beste aus Burgern, Pizza und Gemüse! Alles an einem Ort.</p>
+
+    <main class="main-layout">
+      <div class="left-column">
+        <header class="hero-section">
+          <img
+            src="./assets/img/hero.png"
+            fetchpriority="high"
+            class="hero-image"
+            alt="Header"
+            width="1440"
+            height="500"
+          />
+          <img
+            src="./assets/img/burger-logo.png"
+            class="profile-logo"
+            alt="Restaurant Logo"
+            width="200"
+            height="200"
+          />
+        </header>
+
+        <div class="restaurant-title-container">
+          <h1><span>BURGER</span> HAUS</h1>
+          <p>Das Beste aus Burgern, Pizza und Gemüse! Alles an einem Ort.</p>
+        </div>
+
+        <div class="content-wrapper">
+          <div class="burger-content-inner">
+            <h3 class="category-headline">
+              <img
+                src="./assets/img/arrow.svg"
+                alt="Burger Logo"
+                class="headline-icon"
+                width="90"
+                height="90"
+              />Burger & Sandwiches
+            </h3>
+            <div id="burger-content"></div>
+          </div>
+          <div class="pizza-content-inner">
+            <h3 class="category-headline">
+              <img
+                src="./assets/img/arrow.svg"
+                alt="Burger Logo"
+                class="headline-icon"
+                width="90"
+                height="90"
+              />Pizza (30cm)
+            </h3>
+            <div id="pizza-content"></div>
+          </div>
+          <div class="noodles-content-inner">
+            <h3 class="category-headline">
+              <img
+                src="./assets/img/arrow.svg"
+                alt="Burger Logo"
+                class="headline-icon"
+                width="90"
+                height="90"
+              />Nudeln
+            </h3>
+            <div id="noodles-content"></div>
+          </div>
+          <div class="extra-content-inner">
+            <h3 class="category-headline">
+              <img
+                src="./assets/img/arrow.svg"
+                alt="Burger Logo"
+                class="headline-icon"
+                width="90"
+                height="90"
+              />Beilagen
+            </h3>
+            <div id="extra-content"></div>
+          </div>
+        </div>
       </div>
-    </header>
-    <main>
-      <div class="content-wrapper">
-        <div class="burger-content-inner">
-          <h3 class="category-headline">
-            <img
-              src="./assets/img/arrow.svg"
-              alt="Burger Logo"
-              class="headline-icon"
-              width="90"
-              height="90"
-            />Burger & Sandwiches
-          </h3>
-          <div id="burger-content"></div>
-        </div>
-        <div class="pizza-content-inner">
-          <h3 class="category-headline">
-            <img
-              src="./assets/img/arrow.svg"
-              alt="Burger Logo"
-              class="headline-icon"
-              width="90"
-              height="90"
-            />Pizza (30cm)
-          </h3>
-          <div id="pizza-content"></div>
-        </div>
-        <div class="noodles-content-inner">
-          <h3 class="category-headline">
-            <img
-              src="./assets/img/arrow.svg"
-              alt="Burger Logo"
-              class="headline-icon"
-              width="90"
-              height="90"
-            />Nudeln
-          </h3>
-          <div id="noodles-content"></div>
-        </div>
-        <div class="extra-content-inner">
-          <h3 class="category-headline">
-            <img
-              src="./assets/img/arrow.svg"
-              alt="Burger Logo"
-              class="headline-icon"
-              width="90"
-              height="90"
-            />Beilagen
-          </h3>
-          <div id="extra-content"></div>
-        </div>
-        <section class="basket-wrapper" id="basket-wrapper">
-          <h2>Warenkorb</h2>
-          <div id="basket-content"></div>
-        </section>
-      </div>
+
+      <section class="basket-wrapper" id="basket-wrapper">
+        <h2>Warenkorb</h2>
+        <div id="basket-content"></div>
+      </section>
     </main>
+
     <footer>
       <div class="footer-content">
         <p>© 2026 Burger Haus</p>
