@@ -100,7 +100,8 @@
 .basket-item-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
+  padding-left: 8px;
 }
 
 .basket-item-right img {
