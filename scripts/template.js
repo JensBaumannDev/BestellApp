@@ -115,7 +115,8 @@ function renderBasket() {
     basketRef.innerHTML = `
         <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
         <div id="basket-content" class="empty-basket">Dein Warenkorb ist leer.</div>
-    `;
+        <img class="basketcontainer-basketlogo" src="./assets/navibuttons/basket.svg" alt="Einkaufswagen Logo">
+        `;
   } else {
     basketRef.classList.remove("mobile-hidden");
     basketRef.innerHTML = `
