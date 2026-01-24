@@ -63,7 +63,7 @@ function getBasketItemTemplate(item, index) {
             </div>
             <div class="basket-item-right">
                 <span>${formattedPrice} €</span>
-                <img src="./assets/icons/delete.png" alt="Löschen" onclick="deleteFromBasket(${index})">
+                <img src="../assets/icons/delete.png" alt="Löschen" onclick="deleteFromBasket(${index})">
             </div>
         </div>
     `;
