@@ -104,6 +104,7 @@
   .basket-wrapper.open .order-button,
   .basket-wrapper.open .empty-basket {
     display: flex;
+    justify-content: center;
   }
 
   .basket-wrapper.mobile-hidden {
