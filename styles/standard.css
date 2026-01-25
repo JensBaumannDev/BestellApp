@@ -79,6 +79,36 @@ h2 {
 }
 /* #endregion */
 
+/* #region Title & Review Layout */
+.title-review-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.title-review-wrapper h1 {
+  margin: 0;
+}
+
+.review-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #be02311b;
+  border-radius: 5px;
+  padding: 7px;
+  transform: translateY(4px);
+}
+
+.review-container img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+/* #endregion */
+
 /* #region Main Layout Structure */
 .main-layout {
   display: flex;
