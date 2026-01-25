@@ -100,13 +100,18 @@ function renderBasket() {
   if (!basketRef) return;
 
   let itemsHtml = "";
-  let totalSum = 0;
+  let subtotal = 0;
+  let deliveryCosts = isDelivery ? 5.00 : 0.00;
 
   for (let index = 0; index < basketData.length; index++) {
     itemsHtml += getBasketItemTemplate(basketData[index], index);
-    totalSum += basketData[index].price;
+    subtotal += basketData[index].price;
   }
 
+  let totalSum = subtotal + deliveryCosts;
+
+  let formattedSubtotal = subtotal.toFixed(2).replace(".", ",");
+  let formattedDelivery = deliveryCosts.toFixed(2).replace(".", ",");
   let formattedTotal = totalSum.toFixed(2).replace(".", ",");
 
   if (basketData.length === 0) {
@@ -126,9 +131,19 @@ function renderBasket() {
             <button class="toggle-btn ${!isDelivery ? "active" : ""}" onclick="setDelivery(false)">Abholung</button>
         </div>
         <div id="basket-content">${itemsHtml}</div>
-        <div class="basket-total-row">
-            <span>Gesamt:</span>
-            <span>${formattedTotal} €</span>
+        <div class="basket-subtotal-container">
+            <div class="basket-total-row">
+                <span>Zwischensumme:</span>
+                <span>${formattedSubtotal} €</span>
+            </div>
+            <div class="basket-total-row">
+                <span>Lieferkosten:</span>
+                <span>${formattedDelivery} €</span>
+            </div>
+            <div class="basket-total-row total-sum-bold">
+                <span>Gesamt:</span>
+                <span>${formattedTotal} €</span>
+            </div>
         </div>
         <button class="order-button" onclick="submitOrder()">Bestellen</button>
     `;
