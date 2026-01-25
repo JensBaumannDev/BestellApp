@@ -294,6 +294,10 @@
   .burger-menu {
     display: none;
   }
+
+  .title-review-wrapper h1 {
+    font-size: 32px;
+  }
 }
 /* #endregion */
 
@@ -309,6 +313,10 @@
 
   h2.category-headline {
     font-size: 16px;
+  }
+
+  .title-review-wrapper h1 {
+    font-size: 24px;
   }
 }
 
