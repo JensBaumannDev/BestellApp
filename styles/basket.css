@@ -118,8 +118,7 @@
 /* #region Totals & Actions */
 .basket-subtotal-container {
   width: 100%;
-  margin-top: 16px;
-  border-top: 1px solid #ddd;
+  margin-top: 8px;
 }
 
 .basket-total-row {
@@ -127,7 +126,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 8px 0;
   font-size: 16px;
 }
 
