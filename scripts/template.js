@@ -54,16 +54,21 @@ function renderFoodItems(items) {
 }
 
 function getBasketItemTemplate(item, index) {
-  let formattedPrice = item.price.toFixed(2).replace(".", ",");
+  let itemTotal = item.price * item.amount;
+  let formattedPrice = itemTotal.toFixed(2).replace(".", ",");
   return `
         <div class="basket-item">
-            <div class="basket-item-left">
-                <span>1x</span>
-                <span>${item.name}</span>
+            <div class="item-info">
+                <span class="item-name">${item.name}</span>
+                <span class="item-price">${formattedPrice} €</span>
             </div>
-            <div class="basket-item-right">
-                <span>${formattedPrice} €</span>
-                <img src="assets/icons/delete.png" alt="Löschen" onclick="deleteFromBasket(${index})">
+            <div class="item-controls">
+                <div class="quantity-picker">
+                    <button class="ctrl-btn" onclick="changeAmount(${index}, -1)">-</button>
+                    <span class="qty-display">${item.amount}</span>
+                    <button class="ctrl-btn" onclick="changeAmount(${index}, 1)">+</button>
+                </div>
+                <img src="assets/icons/delete.png" alt="Löschen" class="trash-icon" onclick="deleteFromBasket(${index})">
             </div>
         </div>
     `;
@@ -83,16 +88,27 @@ function getFoodData(foodName) {
 function addToBasket(foodName) {
   const foodItem = getFoodData(foodName);
   if (foodItem) {
-    basketData.push(foodItem);
-    updateBasketBadge();
+    const existingItem = basketData.find((item) => item.name === foodName);
+    if (existingItem) {
+      existingItem.amount++;
+    } else {
+      basketData.push({ ...foodItem, amount: 1 });
+    }
     renderBasket();
   }
+}
+
+function changeAmount(index, delta) {
+  basketData[index].amount += delta;
+  if (basketData[index].amount <= 0) {
+    basketData.splice(index, 1);
+  }
+  renderBasket();
 }
 
 function deleteFromBasket(index) {
   basketData.splice(index, 1);
   renderBasket();
-  updateBasketBadge();
 }
 
 function renderBasket() {
@@ -101,15 +117,14 @@ function renderBasket() {
 
   let itemsHtml = "";
   let subtotal = 0;
-  let deliveryCosts = isDelivery ? 5.00 : 0.00;
+  let deliveryCosts = isDelivery ? 5.0 : 0.0;
 
   for (let index = 0; index < basketData.length; index++) {
     itemsHtml += getBasketItemTemplate(basketData[index], index);
-    subtotal += basketData[index].price;
+    subtotal += basketData[index].price * basketData[index].amount;
   }
 
   let totalSum = subtotal + deliveryCosts;
-
   let formattedSubtotal = subtotal.toFixed(2).replace(".", ",");
   let formattedDelivery = deliveryCosts.toFixed(2).replace(".", ",");
   let formattedTotal = totalSum.toFixed(2).replace(".", ",");
@@ -156,9 +171,10 @@ function renderBasket() {
 function updateBasketBadge() {
   let badge = document.getElementById("basket-badge");
   if (badge) {
-    if (basketData.length > 0) {
+    let totalItems = basketData.reduce((sum, item) => sum + item.amount, 0);
+    if (totalItems > 0) {
       badge.classList.remove("d-none");
-      badge.innerHTML = basketData.length;
+      badge.innerHTML = totalItems;
     } else {
       badge.classList.add("d-none");
     }
@@ -180,7 +196,6 @@ function closeDialog() {
 
 function submitOrder() {
   basketData = [];
-  updateBasketBadge();
   renderBasket();
 
   if (window.innerWidth <= 1000) {

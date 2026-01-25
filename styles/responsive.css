@@ -64,6 +64,8 @@
   .basket-wrapper.open {
     transform: translateY(0);
     overflow-y: auto;
+    box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
 
   .basket-wrapper h2 {
