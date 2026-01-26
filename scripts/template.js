@@ -1,21 +1,4 @@
-//#region Globals & Init
-let isDelivery = true;
-let basketData = [];
-
-const categoryRefs = {
-  Burger: document.getElementById("burger-content"),
-  Pizza: document.getElementById("pizza-content"),
-  Nudeln: document.getElementById("noodles-content"),
-  Beilagen: document.getElementById("extra-content"),
-};
-
-function init() {
-  renderFoodItems(foodDataBase);
-  renderBasket();
-}
-//#endregion
-
-//#region Templates & Rendering
+// #region Template Functions (HTML Blueprints)
 function getFoodTemplate(food) {
   let formattedPrice = food.price.toFixed(2).replace(".", ",");
   return `
@@ -29,28 +12,6 @@ function getFoodTemplate(food) {
           <button class="add-btn" onclick="addToBasket('${food.name}')">Hinzufügen</button>
       </div>
   `;
-}
-
-function renderFoodItems(items) {
-  const htmlBuffers = {
-    Burger: "",
-    Pizza: "",
-    Nudeln: "",
-    Beilagen: "",
-  };
-
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    if (htmlBuffers[item.category] !== undefined) {
-      htmlBuffers[item.category] += getFoodTemplate(item);
-    }
-  }
-
-  for (let category in htmlBuffers) {
-    if (categoryRefs[category]) {
-      categoryRefs[category].innerHTML = htmlBuffers[category];
-    }
-  }
 }
 
 function getBasketItemTemplate(item, index) {
@@ -73,44 +34,9 @@ function getBasketItemTemplate(item, index) {
         </div>
     `;
 }
-//#endregion
+// #endregion
 
-//#region Basket Logic
-function setDelivery(status) {
-  isDelivery = status;
-  renderBasket();
-}
-
-function getFoodData(foodName) {
-  return foodDataBase.find((item) => item.name === foodName);
-}
-
-function addToBasket(foodName) {
-  const foodItem = getFoodData(foodName);
-  if (foodItem) {
-    const existingItem = basketData.find((item) => item.name === foodName);
-    if (existingItem) {
-      existingItem.amount++;
-    } else {
-      basketData.push({ ...foodItem, amount: 1 });
-    }
-    renderBasket();
-  }
-}
-
-function changeAmount(index, delta) {
-  basketData[index].amount += delta;
-  if (basketData[index].amount <= 0) {
-    basketData.splice(index, 1);
-  }
-  renderBasket();
-}
-
-function deleteFromBasket(index) {
-  basketData.splice(index, 1);
-  renderBasket();
-}
-
+// #region Basket Rendering
 function renderBasket() {
   let basketRef = document.getElementById("basket-wrapper");
   if (!basketRef) return;
@@ -130,16 +56,33 @@ function renderBasket() {
   let formattedTotal = totalSum.toFixed(2).replace(".", ",");
 
   if (basketData.length === 0) {
-    basketRef.classList.add("mobile-hidden");
-    basketRef.classList.remove("open");
-    basketRef.innerHTML = `
+    renderEmptyBasket(basketRef);
+  } else {
+    renderFullBasket(
+      basketRef,
+      itemsHtml,
+      formattedSubtotal,
+      formattedDelivery,
+      formattedTotal,
+    );
+  }
+  updateBasketBadge();
+}
+
+// Sub-functions for cleaner renderBasket logic
+function renderEmptyBasket(basketRef) {
+  basketRef.classList.add("mobile-hidden");
+  basketRef.classList.remove("open");
+  basketRef.innerHTML = `
         <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
         <div id="basket-content" class="empty-basket">Dein Warenkorb ist leer.</div>
         <img class="basketcontainer-basketlogo" src="./assets/navibuttons/basket.svg" alt="Einkaufswagen Logo">
         `;
-  } else {
-    basketRef.classList.remove("mobile-hidden");
-    basketRef.innerHTML = `
+}
+
+function renderFullBasket(basketRef, itemsHtml, subtotal, delivery, total) {
+  basketRef.classList.remove("mobile-hidden");
+  basketRef.innerHTML = `
         <h2 onclick="toggleMobileBasket()">Warenkorb</h2>
         <div class="basket-toggle-container">
             <button class="toggle-btn ${isDelivery ? "active" : ""}" onclick="setDelivery(true)">Lieferung</button>
@@ -149,51 +92,23 @@ function renderBasket() {
         <div class="basket-subtotal-container">
             <div class="basket-total-row">
                 <span>Zwischensumme:</span>
-                <span>${formattedSubtotal} €</span>
+                <span>${subtotal} €</span>
             </div>
             <div class="basket-total-row">
                 <span>Lieferkosten:</span>
-                <span>${formattedDelivery} €</span>
+                <span>${delivery} €</span>
             </div>
             <div class="basket-total-row total-sum-bold">
                 <span>Gesamt:</span>
-                <span>${formattedTotal} €</span>
+                <span>${total} €</span>
             </div>
         </div>
         <button class="order-button" onclick="submitOrder()">Bestellen</button>
     `;
-  }
-  updateBasketBadge();
 }
-//#endregion
+// #endregion
 
-//#region Navigation UI
-function updateBasketBadge() {
-  let badge = document.getElementById("basket-badge");
-  if (badge) {
-    let totalItems = basketData.reduce((sum, item) => sum + item.amount, 0);
-    if (totalItems > 0) {
-      badge.classList.remove("d-none");
-      badge.innerHTML = totalItems;
-    } else {
-      badge.classList.add("d-none");
-    }
-  }
-}
-
-function toggleMobileBasket() {
-  let basketRef = document.getElementById("basket-wrapper");
-  if (basketData.length > 0) {
-    basketRef.classList.toggle("open");
-  }
-}
-//#endregion
-
-//#region Order & Dialog Logic
-function closeDialog() {
-  document.getElementById("dialog").classList.add("d-none");
-}
-
+// #region Order Process & Dialogs
 function submitOrder() {
   basketData = [];
   renderBasket();
@@ -217,6 +132,6 @@ function submitOrder() {
   `;
   dialogRef.classList.remove("d-none");
 }
-//#endregion
+// #endregion
 
 init();
